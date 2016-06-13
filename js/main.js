@@ -39,3 +39,13 @@ form.submit(function(event){
 		Materialize.toast('<i class="material-icons" style="margin-right: 0.5em;">warning</i> Please fill out all the required fields.', 4000);
 	}
 });
+
+(function() {
+  var link = parent.document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = 'img/favicon.ico';
+  parent.document.getElementsByTagName('head')[0].appendChild(link);
+}());
+
+parent.document.title = "Ralph Lawrence's";
