@@ -70,7 +70,7 @@ scheda.setConfig({ // Default Values
    timeColumnWidth: 60,
    time: {font: "sans-serif"},
    day: {font: "sans-serif"},
-   sched: {font: "sans-serif"}
+   sched: {font: "sans-serif", size: 12}
 });
 
 scheda.setConfig({
