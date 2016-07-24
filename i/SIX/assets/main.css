@@ -94,3 +94,8 @@ input[type=text]:focus:not([readonly]) + label, input[type=number]:focus:not([re
 .dropdown-content li > a, .dropdown-content li > span {
    color: #b71c1c;
 }
+
+#from-mm:before {
+   content: ':';
+   border: 5px solid white;
+}

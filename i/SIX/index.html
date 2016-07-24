@@ -23,8 +23,8 @@
 <div class="row container">
 <div class="col s8">
 <h2 class="light">Welcome to <span class="red-text">6</span>!</h2>
-<p>6 is a tool created from scheda.js. This tool is simplified and targeted for speed in making dream schedules. Since the current implemented system is not much user-friendly, this is made to help students create their dream schedules. <span class="bold">You are free to dream! Share this to help other people create their dreams!</span> If you have any questions, feel free to email me at <a href="mailto:rrsilaya@up.edu.ph">rrsilaya@up.edu.ph</a>.</p>
-<a href="../../index.html" class="btn red darken-4 white-text btn waves-effect waves-light">Dev Website</a>
+<p>6 is a tool created from scheda.js. This tool is simplified and targeted for speed in making dream schedules. Since the current implemented system is not much user-friendly, this is made to help students create their dream schedules. <span class="bold">You are free to dream! Share this to help other people create their dreams!</span> If you have any questions, feel free to email me at <a href="mailto:rrsilaya@up.edu.ph">rrsilaya@up.edu.ph</a>. Visit my website <a href="../../index.html">here</a>.</p>
+<p><a href="https://twitter.com/RalphKirito" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @RalphKirito</a><script async src="../../js/widgets.js" charset="utf-8"></script></p>
 </div>
 <div class="col s4">
    <img src="assets/logo-01.png" style="width: 60%;">
@@ -38,7 +38,7 @@
 <span class="card-title">Add Class</span>
 <form class="col s12" id="add">
    <div class="input-field col s6">
-      <select class="icons" id="colors">
+      <select id="colors">
          <option value="red" selected>Red</option>
          <option value="mnBlue">Blue-Gray</option>
          <option value="teal">Teal</option>
@@ -65,21 +65,57 @@
 
    <div class="input-field col s6">
       <div class="col s6">
-         <input placeholder="HH" id="from-hh" type="number">
+         <select id="from-hh">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+         </select>
          <label for="from-hh">From</label>
       </div>
       <div class="col s6">
-         <input placeholder="MM" id="from-mm" type="number">
+         <select id="from-mm">
+            <option value="00" selected>00</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+            <option value="45">45</option>
+         </select>
          <label for="from-mm"></label>
       </div>
    </div>
    <div class="input-field col s6">
       <div class="col s6">
-         <input placeholder="HH" id="to-hh" type="number">
+         <select id="to-hh">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+         </select>
          <label for="to-hh">To</label>
       </div>
       <div class="col s6">
-         <input placeholder="MM" id="to-mm" type="number">
+         <select id="to-mm">
+            <option value="00" selected>00</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+            <option value="45">45</option>
+         </select>
          <label for="to-mm"></label>
       </div>
    </div>

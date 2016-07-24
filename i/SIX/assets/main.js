@@ -18,8 +18,8 @@ var addfxn = function() {
        days = $('.days'),
        days_str = '';
 
-if (!days.length) {
-   Materialize.toast('Please check at least one class day.');
+if ($('.days:checked').length == 0) {
+   Materialize.toast('Please check at least one class day.', 4000);
 } else {
    for (i=0; i < days.length; i++) {
       if (days[i].checked) {
@@ -27,16 +27,14 @@ if (!days.length) {
       }
    }
    // Process
-   if (course.val().length < 2 || section.val().length == 0 || $('#from-hh').val().length == 0 || $('#to-hh').val().length == 0 || $('#from-mm').val().length == 0 || $('#to-mm').val().length == 0) {
+   if (course.val().length < 2 || section.val().length == 0) {
       Materialize.toast('Please enter your information properly.', 4000);
-   } else if (($('#from-mm').val() != '15' && $('#from-mm').val() != '30' && $('#from-mm').val() != '45' && $('#from-mm').val() != '00') || ($('#to-mm').val() != '15' && $('#to-mm').val() != '30' && $('#to-mm').val() != '45' && $('#to-mm').val() != '00')) {
-      Materialize.toast('Time entered is invalid.', 4000);
    } else {
       // Fillers
-      time = $('#from-hh').val() + ':' + $('#from-mm').val() + '-' + $('#to-hh').val() + ':' + $('#to-mm').val();
       if (room.length == 0) {
          room = 'TBA';
       }
+      time = $('#from-hh').val() + ':' + $('#from-mm').val() + '-' + $('#to-hh').val() + ':' + $('#to-mm').val();
 
       id = scheda.drawCourse(days_str, time, course.val(), section.val(), room);
       Materialize.toast("Class succesfully added!", 4000);
@@ -163,7 +161,4 @@ var clearForm = function() {
    $('label[for="course-section"]').removeClass('active');
    $('#course-rm').val('');
    $('label[for="course-rm"]').removeClass('active');
-
-   $('#from-hh').val(''); $('#from-mm').val('');
-   $('#to-hh').val(''); $('#to-mm').val('');
 }
