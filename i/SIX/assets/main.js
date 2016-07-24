@@ -52,7 +52,7 @@ if ($('.days:checked').length == 0) {
              c_rm = log[i]['args'][4],
              c_id = log[i]['id'];
 
-         $('#class-list').append('<tr id="' + c_id + '"><td>' + c_title + '</td><td>' + c_sec + '</td><td>' + c_rm + '</td><td>' + c_time + ' ' + c_day + '</td><td><a class="btn btn-floating red darken-4 waves-effect waves-light table" onClick="ifEmpty();scheda.remove(\'' + c_id + '\');$(\'#' + c_id + '\').remove();"><i class="material-icons table">clear</i></a></td></tr>').fadeIn();
+         $('#class-list').append('<tr id="' + c_id + '"><td>' + c_title + '</td><td>' + c_sec + '</td><td>' + c_rm + '</td><td>' + c_time + ' ' + c_day + '</td><td><a class="btn btn-floating red darken-4 waves-effect waves-light table" onClick="ifEmpty();scheda.remove(\'' + c_id + '\');$(\'#' + c_id + '\').remove();Materialize.tost(\'Class successfully deleted!\');"><i class="material-icons table">clear</i></a></td></tr>').fadeIn();
       }
    }
 }
