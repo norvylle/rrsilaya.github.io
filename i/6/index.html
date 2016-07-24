@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>6 - Honor and Excellence</title>
+   <link rel="stylesheet" type="text/css" href="../../css/materialize.min.css">
+   <link rel="stylesheet" type="text/css" href="../../css/material-icons.css">
+   <link rel="stylesheet" type="text/css" href="assets/main.css">
+   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<nav class="red darken-4">
+<div class="nav-wrapper container">
+   <a class="brand-logo"><img src="assets/logo-02.png" height="28px"></a>
+   <ul class="right">
+      <li><a href="#edit-class">Edit Classes</a></li>
+      <li><a href="#class-table">Class List</a></li>
+   </ul>
+</div>
+</nav>
+
+<div class="row container">
+<div class="col s8">
+<h2 class="light">Welcome to <span class="red-text">6</span>!</h2>
+<p>6 is a tool created from scheda.js. This tool is simplified and targeted for speed in making dream schedules. Since the current implemented system is not much user-friendly, this is made to help students create their dream schedules. <span class="bold">You are free to dream! Share this to help other people create their dreams!</span> If you have any questions, feel free to email me at <a href="mailto:rrsilaya@up.edu.ph">rrsilaya@up.edu.ph</a>.</p>
+<a href="../../index.html" class="btn red darken-4 white-text btn waves-effect waves-light">Dev Website</a>
+</div>
+<div class="col s4">
+   <img src="assets/logo-01.png" style="width: 60%;">
+</div>
+</div>
+
+<div class="row section scrollspy" id="edit-class">
+<div class="col s4">
+<div class="card red darken-4">
+<div class="row card-content white-text">
+<span class="card-title">Add Class</span>
+<form class="col s12" id="add">
+   <div class="input-field col s6">
+      <select class="icons" id="colors">
+         <option value="red" selected>Red</option>
+         <option value="mnBlue">Blue-Gray</option>
+         <option value="teal">Teal</option>
+         <option value="blue">Blue</option>
+         <option value="lavender">Lavender</option>
+         <option value="orange">Orange</option>
+         <option value="charcoal">Charcoal</option>
+      </select>
+      <label for="colors">Color Scheme</label>
+   </div>
+
+   <div class="input-field col s6">
+      <input id="course-title" type="text">
+      <label for="course-title">Course Code</label>
+   </div>
+   <div class="input-field col s4">
+      <input id="course-section" type="text">
+      <label for="course-section">Section</label>
+   </div>
+   <div class="input-field col s8">
+      <input id="course-rm" type="text">
+      <label for="course-rm">Room</label>
+   </div>
+
+   <div class="input-field col s6">
+      <div class="col s6">
+         <input placeholder="HH" id="from-hh" type="number">
+         <label for="from-hh">From</label>
+      </div>
+      <div class="col s6">
+         <input placeholder="MM" id="from-mm" type="number">
+         <label for="from-mm"></label>
+      </div>
+   </div>
+   <div class="input-field col s6">
+      <div class="col s6">
+         <input placeholder="HH" id="to-hh" type="number">
+         <label for="to-hh">To</label>
+      </div>
+      <div class="col s6">
+         <input placeholder="MM" id="to-mm" type="number">
+         <label for="to-mm"></label>
+      </div>
+   </div>
+
+   <div class="input-field col s12">
+      <div class="col s4"><input type="checkbox" class="filled-in days" id="M">
+      <label for="M">MON</label></div>
+      <div class="col s4"><input type="checkbox" class="filled-in days" id="T">
+      <label for="T">TUE</label></div>
+      <div class="col s4"><input type="checkbox" class="filled-in days" id="W">
+      <label for="W">WED</label></div>
+      <div class="col s4"><input type="checkbox" class="filled-in days" id="Th">
+      <label for="Th">THU</label></div>
+      <div class="col s4"><input type="checkbox" class="filled-in days" id="F">
+      <label for="F">FRI</label></div>
+      <div class="col s4"><input type="checkbox" class="filled-in days" id="S">
+      <label for="S">SAT</label></div>
+   </div>
+</form>
+
+</div>
+<div class="card-action center">
+<a class="btn-flat white-text waves-effect waves-light" onClick="scheda.repaint();">Recolor</a>
+<button class="btn white red-text text-darken-4 waves-effect" onClick="addfxn();">ADD CLASS</button>
+</div>
+
+</div></div>
+
+<div class="col s8">
+<div class="card white" style="box-shadow: none;">
+   <div class="card-content">
+   <span class="card-title">Weekly Class Schedule</span>
+   <a class="btn-floating btn right red darken-4 white-text waves-effect waves-light" onClick="scheda.downloadSchedule();" id="dl"><i class="material-icons">file_download</i></a>
+   <canvas id="6-sched" class="z-depth-1"></canvas>
+   </div>
+</div>
+</div>
+</div>
+
+<div class="container center scrollspy section" id="class-table">
+   <table class="highlight">
+   <thead>
+   <tr>
+      <th>Course Title</th>
+      <th>Section</th>
+      <th>Room</th>
+      <th>Time</th>
+      <th>Actions</th>
+   </tr>
+   </thead>
+   <tbody id="class-list">
+   <tr>
+      <td colspan="5" class="center disabled">No entries</td>
+   </tr>
+   </tbody>
+   </table>
+</div>
+
+<!-- Script -->
+<script type="text/javascript" src="../../js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="../../js/materialize.min.js"></script>
+<script type="text/javascript" src="assets/scheda.js"></script>
+<script type="text/javascript" src="assets/main.js"></script>
+
+</body>
+</html>
