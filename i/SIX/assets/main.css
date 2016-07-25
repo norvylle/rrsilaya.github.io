@@ -95,7 +95,12 @@ input[type=text]:focus:not([readonly]) + label, input[type=number]:focus:not([re
    color: #b71c1c;
 }
 
-#from-mm:before {
-   content: ':';
-   border: 5px solid white;
+#reco {
+   margin-top: 8px;
+}
+
+#dl-link {
+   width: 100%;
+   text-align: center;
+   margin-top: 1.5em;
 }

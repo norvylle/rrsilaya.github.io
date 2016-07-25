@@ -120,6 +120,30 @@
       </div>
    </div>
 
+   <div class="input-field col s8">
+      <select id="course-color">
+         <option value="rand" selected>Random</option>
+         <option value="#1abc9c">Teal</option>
+         <option value="#27ae60">Green</option>
+         <option value="#3498db">Blue</option>
+         <option value="#8e44ad">Lavender</option>
+         <option value="#2c3e50">Blue-Gray</option>
+         <option value="#f39c12">Orange</option>
+         <option value="#b71c1c">Red</option>
+         <option value="#424242">Charcoal</option>
+         <option value="#3E2723">Brown</option>
+         <option value="#E91E63">Pink</option>
+         <option value="#00BCD4">Cyan</option>
+         <option value="#3F51B5">Indigo</option>
+         <option value="#000000">Black</option>
+         <option value="#FF5722">Deep Orange</option>
+      </select>
+      <label for="course-color">Course Color</label>
+   </div>
+   <div class="input-field col s4">
+      <a class="btn-flat white-text waves-effect waves-light tooltipped" id="reco" onClick="scheda.repaint();" data-tooltip="Recolor Random Colored Classes" data-position="top">Recolor</a>
+   </div>
+
    <div class="input-field col s12">
       <div class="col s4"><input type="checkbox" class="filled-in days" id="M">
       <label for="M">MON</label></div>
@@ -134,11 +158,11 @@
       <div class="col s4"><input type="checkbox" class="filled-in days" id="S">
       <label for="S">SAT</label></div>
    </div>
+
 </form>
 
 </div>
 <div class="card-action center">
-<a class="btn-flat white-text waves-effect waves-light" onClick="scheda.repaint();">Recolor</a>
 <button class="btn white red-text text-darken-4 waves-effect" onClick="addfxn();">ADD CLASS</button>
 </div>
 
@@ -148,8 +172,8 @@
 <div class="card white" style="box-shadow: none;">
    <div class="card-content">
    <span class="card-title">Weekly Class Schedule</span>
-   <a class="btn-floating btn right red darken-4 white-text waves-effect waves-light" onClick="scheda.downloadSchedule();" id="dl"><i class="material-icons">file_download</i></a>
    <canvas id="6-sched" class="z-depth-1"></canvas>
+   <div id="dl-link"><a class="btn center red darken-4 white-text waves-effect waves-light" onClick="scheda.downloadSchedule();" id="dl">Download Schedule</a></div>
    </div>
 </div>
 </div>

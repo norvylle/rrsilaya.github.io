@@ -1,6 +1,7 @@
 $(document).ready(function() {
    $('select').material_select();
    $('.scrollspy').scrollSpy();
+   $('.tooltipped').tooltip({delay: 100});
 });
 
 scheda.init('6-sched');
@@ -16,7 +17,8 @@ var addfxn = function() {
        time, log,
        room = $('#course-rm').val(),
        days = $('.days'),
-       days_str = '';
+       days_str = '',
+       color = $('#course-color').val();
 
 if ($('.days:checked').length == 0) {
    Materialize.toast('Please check at least one class day.', 4000);
@@ -36,7 +38,11 @@ if ($('.days:checked').length == 0) {
       }
       time = $('#from-hh').val() + ':' + $('#from-mm').val() + '-' + $('#to-hh').val() + ':' + $('#to-mm').val();
 
-      id = scheda.drawCourse(days_str, time, course.val(), section.val(), room);
+      if (color == 'rand') {
+         id = scheda.drawCourse(days_str, time, course.val(), section.val(), room);
+      } else {
+         id = scheda.drawCourse(days_str, time, course.val(), section.val(), room, color);
+      }
       Materialize.toast("Class succesfully added!", 4000);
       clearForm();
 
@@ -83,7 +89,7 @@ scheda.setConfig({
 
 $('#colors').change(function() {
    var val = $('#colors option:selected').val();
-   scheda.repaint();
+   // scheda.repaint();
 
    switch (val) {
       case 'red':
