@@ -26,16 +26,16 @@ canvas {
    margin-right: 2em;
 }
 
-i.table {
-   font-size: 14px;
-   padding: 0;
-   margin-top: -3px;
+img.table {
+   height: 15px;
 }
 
 a.table {
-   height: 30px;
-   width: 30px;
-   padding: 0;
+   height: 25px;
+   width: 25px;
+   padding: 5px;
+   line-height: 15px;
+   margin-right: 0.5em;
 }
 
 .disabled {
@@ -103,4 +103,12 @@ input[type=text]:focus:not([readonly]) + label, input[type=number]:focus:not([re
    width: 100%;
    text-align: center;
    margin-top: 1.5em;
+}
+
+.color-pre {
+   height: 8px;
+   width: 8px;
+   border-radius: 50%;
+   display: inline-block;
+   margin-left: 0.5em;
 }

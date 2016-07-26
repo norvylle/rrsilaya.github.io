@@ -6,6 +6,9 @@ $(document).ready(function() {
 
 scheda.init('6-sched');
 
+window.onbeforeunload = function() {
+    return 'Changes you made may not be saved.';
+};
 
 // Variables
 var add = $('#add-class');
@@ -56,9 +59,15 @@ if ($('.days:checked').length == 0) {
              c_time = log[i]['args'][1],
              c_day = log[i]['args'][0],
              c_rm = log[i]['args'][4],
-             c_id = log[i]['id'];
+             c_id = log[i]['id'], c_color;
 
-         $('#class-list').append('<tr id="' + c_id + '"><td>' + c_title + '</td><td>' + c_sec + '</td><td>' + c_rm + '</td><td>' + c_time + ' ' + c_day + '</td><td><a class="btn btn-floating red darken-4 waves-effect waves-light table" onClick="ifEmpty();scheda.remove(\'' + c_id + '\');$(\'#' + c_id + '\').remove();Materialize.toast(\'Class successfully deleted!\', 4000);"><i class="material-icons table">clear</i></a></td></tr>').fadeIn();
+         if (log[i]['args'].length == 6) {
+            c_color = log[i]['args'][5];
+         } else {
+            c_color = '#dfdfdf';
+         }
+
+         $('#class-list').append('<tr id="' + c_id + '"><td>' + c_title + '<div class="color-pre" style="background-color:' + c_color + '"></div></td><td>' + c_sec + '</td><td>' + c_rm + '</td><td>' + c_time + ' ' + c_day + '</td><td><a class="btn btn-floating red darken-4 waves-effect waves-light table" onClick="ifEmpty();scheda.remove(\'' + c_id + '\');$(\'#' + c_id + '\').remove();Materialize.toast(\'Class successfully deleted!\', 4000);"><img src="assets/clear.svg" class="table"></a><a class="btn btn-floating red darken-4 waves-effect waves-light table"  href="#edit-class" onClick="Materialize.toast(\'Please edit fields.\', 4000);editCourse(\'' + c_title + '\',\'' + c_sec + '\',\'' + c_rm + '\');ifEmpty();scheda.remove(\'' + c_id + '\');$(\'#' + c_id + '\').remove();"><img src="assets/edit.svg" class="table"></a></td></tr>').fadeIn();
       }
    }
 }
@@ -168,3 +177,16 @@ var clearForm = function() {
    $('#course-rm').val('');
    $('label[for="course-rm"]').removeClass('active');
 }
+
+// Edit
+var editCourse = function(c_title, c_sec, c_rm) {
+   $('label[for="course-title"]').addClass('active');
+   $('#course-title').val(c_title);
+
+   $('label[for="course-section"]').addClass('active');
+   $('#course-section').val(c_sec);
+
+   $('label[for="course-rm"]').addClass('active');
+   $('#course-rm').val(c_rm);
+
+};
