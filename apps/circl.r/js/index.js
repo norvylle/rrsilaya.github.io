@@ -19,7 +19,7 @@ $(window).on('load', () => {
 const empty = "<tr><td colspan=\"3\">No classes added yet.</td></tr>";
 
 // Fxns
-disableEdits = () => {
+function disableEdits() {
 	$('.uk-radio').attr('disabled', true);
 	$('#sched-title').attr('disabled', true);
 	$('#save-config').attr('disabled', true);
