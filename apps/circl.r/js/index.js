@@ -19,6 +19,12 @@ $(window).on('load', () => {
 const empty = "<tr><td colspan=\"3\">No classes added yet.</td></tr>";
 
 // Fxns
+disableEdits = () => {
+	$('.uk-radio').attr('disabled', true);
+	$('#sched-title').attr('disabled', true);
+	$('#save-config').attr('disabled', true);
+}
+
 showInvalid = element => {
 	const show = "uk-animation-shake uk-form-danger";
 
@@ -154,11 +160,15 @@ $('#credits').click(e => {
 $('#save-config').click(e => {
 	e.preventDefault();
 
-	circular.init("circular", {
-		label: $("#sched-title").val() || "My Schedule",
-		hasEdge: JSON.parse($("input[name=theme]:checked").val()),
-		invertedDays: JSON.parse($("input[name=inversion]:checked").val())
-	});
+	if(!$('#save-config').attr('disabled')) {
+		circular.init("circular", {
+			label: $("#sched-title").val() || "My Schedule",
+			hasEdge: JSON.parse($("input[name=theme]:checked").val()),
+			invertedDays: JSON.parse($("input[name=inversion]:checked").val())
+		});
 
-	UIkit.modal("#setup-modal").toggle();
+		disableEdits();
+
+		UIkit.modal("#setup-modal").toggle();
+	}
 });
