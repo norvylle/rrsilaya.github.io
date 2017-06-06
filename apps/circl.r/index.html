@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>circl.r - CircularJS Studio</title>
+
+	<link rel="stylesheet" type="text/css" href="fonts/lineto/lineto-font.css" />
+	<link rel="stylesheet" type="text/css" href="css/theme.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+<div class="uk-offcanvas-content">
+	<div id="loader-wrapper"><div uk-spinner></div></div>
+	<!-- Workarea -->
+	<div id="workarea">
+		<canvas id="circular" height="600" width="950">
+			HTML5 Canvas is not supported in your browser.
+		</canvas>
+	</div>
+
+	<div id="hamburger">
+		<a href="#" uk-icon="icon: menu" id="showControls"></a>
+	</div>
+
+	<!-- Controls -->
+	<div id="controls" uk-offcanvas="mode: reveal;">
+		<div class="uk-offcanvas-bar">
+			<button class="uk-offcanvas-close" type="button" uk-close></button>
+			<h2 class="uk-text-center">CircularJS Studio</h3>
+
+			<div class="uk-text-center">
+				<button class="uk-button uk-button-default uk-button-small" id="credits">Credits	</button>
+				<button class="uk-button uk-button-default uk-button-small" id="download">Download</button>
+			</div>
+
+			<h4 class="uk-heading-divider">Add Class</h4>
+			<form>
+				<div class="uk-margin">
+					<input class="uk-input" type="text" placeholder="Course" id="coursetitle">
+				</div>
+
+				<div class="uk-margin uk-grid-small" uk-grid>
+					<div class="uk-width-1-2@s">
+						<input class="uk-input" type="text" placeholder="Room" id="room">
+					</div>
+					<div class="uk-width-1-2@s">
+						<input class="uk-input" type="text" placeholder="Section" id="section">
+					</div>
+				</div>
+
+				<!-- START TIME -->
+				<div class="uk-margin uk-form-stacked uk-grid-small" uk-grid>
+					<div class="uk-width-1-2@m uk-width-1-1@s">
+						<label class="uk-form-label">Start</label>
+						<div class="uk-form-controls">
+							<select class="uk-select" id="start-hh">
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">1</option>
+								<option value="14">2</option>
+								<option value="15">3</option>
+								<option value="16">4</option>
+								<option value="17">5</option>
+								<option value="18">6</option>
+								<option value="19">7</option>
+							</select>
+						</div>
+					</div>
+					<div class="uk-width-1-2@m uk-width-1-1@s">
+						<div class="uk-form-controls">
+							<label class="uk-form-label">&nbsp;</label>
+							<select class="uk-select" id="start-mm">
+								<option value=":00">: 00</option>
+								<option value=":15">: 15</option>
+								<option value=":30">: 30</option>
+								<option value=":45">: 45</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- END TIME -->
+				<div class="uk-margin uk-form-stacked uk-grid-small" uk-grid>
+					<div class="uk-width-1-2@m uk-width-1-1@s">
+						<label class="uk-form-label">End</label>
+						<div class="uk-form-controls">
+							<select class="uk-select" id="end-hh">
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">1</option>
+								<option value="14">2</option>
+								<option value="15">3</option>
+								<option value="16">4</option>
+								<option value="17">5</option>
+								<option value="18">6</option>
+								<option value="19">7</option>
+							</select>
+						</div>
+					</div>
+					<div class="uk-width-1-2@m uk-width-1-1@s">
+						<div class="uk-form-controls">
+							<label class="uk-form-label">&nbsp;</label>
+							<select class="uk-select" id="end-mm">
+								<option value=":00">: 00</option>
+								<option value=":15">: 15</option>
+								<option value=":30">: 30</option>
+								<option value=":45">: 45</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Days -->
+				<div class="uk-margin uk-grid-small" id="days" uk-grid>
+					<div class="uk-width-1-2@s uk-child-width-auto">
+						<label><input class="uk-checkbox" type="checkbox" name="0">Monday</label><br>
+						<label><input class="uk-checkbox" type="checkbox" name="1">Tuesday</label><br>
+						<label><input class="uk-checkbox" type="checkbox" name="2">Wednesday</label>
+					</div>
+					<div class="uk-width-1-2@s uk-child-width-auto">
+						<label><input class="uk-checkbox" type="checkbox" name="3">Thursday</label><br>
+						<label><input class="uk-checkbox" type="checkbox" name="4">Friday</label>
+					</div>
+				</div>
+
+				<div class="uk-margin uk-text-center">
+					<button class="uk-button uk-button-primary" id="add-class">Add Class</button>
+				</div>
+			</form>
+
+			<!-- Class List -->
+			<table class="uk-table uk-table-responsive uk-table-divider">
+				<thead><tr>
+					<th>Course</th>
+					<th class="uk-table-shrink">Actions</th>
+				</tr></thead>
+				<tbody>
+					<tr><td colspan="2">No classes added yet.</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div id="setup-modal" class="uk-modal-full" uk-modal>
+	<div class="uk-modal-dialog">
+		<button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+		<div class="uk-grid-collapse uk-flex-middle" uk-grid uk-height-viewport>
+			<div class="uk-padding-large">
+				<h1 class="uk-heading-primary uk-text-center">CircularJS Studio</h1>
+				<p>Welcome to CircularJS Studio. CircularJS is a Javascript library for drawing a week-long circular schedule/timetable for university students using HTML5 canvas. Visit my other projects on <a href="http://rrsilaya.github.io/">Github</a>. Start by filling out your prefered configuration below.</p>
+
+				<h3 class="uk-heading-divider">Custom Configurations</h3>
+				<form class="uk-form-horizontal">
+					<div class="uk-margin">
+						<label class="uk-form-label" for="sched-title">Schedule Title</label>
+						<div class="uk-form-controls">
+							<input class="uk-input" id="sched-title" type="text" placeholder="My Schedule">
+						</div>
+					</div>
+
+					<div class="uk-margin uk-grid uk-grid-divider" uk-grid>
+						<div class="uk-width-1-2@s">
+							<div class="uk-form-label">Theme</div>
+							<label><input type="radio" class="uk-radio" name="theme" value="true" checked> Edged</label><br>
+							<label><input type="radio" class="uk-radio" name="theme" value="false"> Circular</label>
+						</div>
+						<div class="uk-width-1-2@s">
+							<div class="uk-form-label">Days Inverted</div>
+							<label><input type="radio" class="uk-radio" name="inversion" value="true" checked> True</label><br>
+							<label><input type="radio" class="uk-radio" name="inversion" value="false"> False</label>
+						</div>
+					</div>
+					
+					<div class="uk-margin uk-text-center">
+						<button class="uk-button uk-button-secondary" id="save-config">Start</button>
+					</div>
+				</form>
+
+				<hr>
+				<p>
+					CircularJS too complex for you? You can also try <a href="http://rrsilaya.github.io/apps/SIX/">SIX</a> for simple scheduler.
+				</p>
+
+				<div class="uk-margin uk-text-center">
+					<a class="twitter-follow-button"
+						href="https://twitter.com/rrsilaya"
+						data-size="large">
+						Follow @rrsilaya</a>
+					<a class="github-button" href="https://github.com/rrsilaya" data-size="large" data-show-count="true" aria-label="Follow @rrsilaya on GitHub">Follow @rrsilaya</a>
+
+					<a class="github-button" href="https://github.com/rrsilaya/CircularJS" data-size="large" data-show-count="true" aria-label="Star rrsilaya/CircularJS on GitHub">Star</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/uikit.min.js"></script>
+<script src="js/uikit-icons.min.js"></script>
+<script src="js/circular.js"></script>
+<script src="js/index.js"></script>
+
+<script>
+window.twttr = (function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0],
+		t = window.twttr || {};
+	if (d.getElementById(id)) return t;
+	js = d.createElement(s);
+	js.id = id;
+	js.src = "https://platform.twitter.com/widgets.js";
+	fjs.parentNode.insertBefore(js, fjs);
+
+	t._e = [];
+	t.ready = function(f) {
+		t._e.push(f);
+	};
+
+	return t;
+}(document, "script", "twitter-wjs"));
+</script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
