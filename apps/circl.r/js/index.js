@@ -19,12 +19,6 @@ $(window).on('load', () => {
 const empty = "<tr><td colspan=\"3\">No classes added yet.</td></tr>";
 
 // Fxns
-function disableEdits() {
-	$('.uk-radio').attr('disabled', true);
-	$('#sched-title').attr('disabled', true);
-	$('#save-config').attr('disabled', true);
-}
-
 showInvalid = element => {
 	const show = "uk-animation-shake uk-form-danger";
 
@@ -119,6 +113,8 @@ deleteClass = uuid => {
 
 	if(circular.getSubjects().length === 0)
 		$('tbody').html(empty);
+
+	UIkit.notification("Successfully removed class.");
 }
 
 
@@ -167,8 +163,9 @@ $('#save-config').click(e => {
 			invertedDays: JSON.parse($("input[name=inversion]:checked").val())
 		});
 
-		disableEdits();
+		circular.refresh();
 
 		UIkit.modal("#setup-modal").toggle();
+		UIkit.notification("Successfully saved configurations.");
 	}
 });
