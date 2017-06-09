@@ -68,3 +68,10 @@ canvas {
 	background: rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
 }
+
+#color-prev {
+	background-color: gray;
+	display: inline-block;
+	width: 2rem;
+	margin-left: 10px;
+}

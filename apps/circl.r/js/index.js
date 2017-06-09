@@ -9,7 +9,31 @@ $(window).on('load', () => {
 
 		time: {
 			font: "Circular-Pro-Book, sans-serif"
-		}
+		},
+
+		colors: [
+			"#1abc9c",
+			"#27ae60",
+			"#3498db",
+			"#9b59b6",
+			"#f1c40f",
+			"#f39c12",
+			"#e67e22",
+			"#c0392b",
+			"#7f8c8d",
+			"#32161F",
+			"#85C7F2",
+			"#415D43",
+			"#648381",
+			"#FFBF46",
+			"#033F63",
+			"#28666E",
+			"#DA627D",
+			"#2E2532",
+			"#BA274A",
+			"#841C26",
+			"#AF125A"
+		]
 	});
 
 	$('#loader-wrapper').remove();
@@ -31,7 +55,7 @@ showInvalid = element => {
 getDays = () => {
 	var checked = [];
 
-	$('input:checked').each(function() {
+	$('input[type=checkbox]:checked').each(function() {
 		checked.push(parseInt($(this).attr('name')));
 	});
 
@@ -133,13 +157,26 @@ $('#add-class').click(e => {
 	e.preventDefault();
 
 	if(checkFormValidity()) {
-		const uuid = circular.addCourse(
-			getDays(),
-			$('#start-hh').val() + $('#start-mm').val() + "-" + $('#end-hh').val() + $('#end-mm').val(),
-			$('#coursetitle').val(),
-			$('#section').val(),
-			$('#room').val()
-		);
+		var uuid;
+
+		if($('#color-picker').val() === "") {
+			uuid = circular.addCourse(
+				getDays(),
+				$('#start-hh').val() + $('#start-mm').val() + "-" + $('#end-hh').val() + $('#end-mm').val(),
+				$('#coursetitle').val(),
+				$('#section').val(),
+				$('#room').val()
+			);
+		} else {
+			uuid = circular.addCourse(
+				getDays(),
+				$('#start-hh').val() + $('#start-mm').val() + "-" + $('#end-hh').val() + $('#end-mm').val(),
+				$('#coursetitle').val(),
+				$('#section').val(),
+				$('#room').val(),
+				$('#color-picker').val()
+			);
+		}
 
 		addSubjectToTable(uuid, $('#coursetitle').val(), $('#section').val());
 		resetForm();
@@ -168,4 +205,10 @@ $('#save-config').click(e => {
 		UIkit.modal("#setup-modal").toggle();
 		UIkit.notification("Successfully saved configurations.");
 	}
+});
+
+$('#color-picker').change(() => {
+	var color = $('#color-picker').val();
+
+	$('#color-prev').css("background-color", color === "" ? "gray" : color);
 });
