@@ -5,31 +5,24 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #011627;
+  background-color: #262626;
   color: #fff;
   font-family: sans-serif;
-}
-
-.text-blue {
-  color: #011627;
 }
 
 .container {
   padding: 20px;
   background-color: #fff;
+  position: relative;
   color: #000;
   width: 75%;
-}
-
-.title {
-  font-family: 'Lobster', cursive;
-  text-align: center;
-  color: #2EC4B6;
-  font-size: 28pt;
-}
-
-.information {
   font-family: 'Assistant', sans-serif;
+}
+
+.container h1 {
+  margin: 5pt 0;
+  font-size: 28pt;
+  color: #262626;
 }
 
 .information p {
@@ -38,5 +31,20 @@ html, body {
 
 .information .label {
   font-weight: 800;
+  color: #262626;
 }
 
+.icon {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  background-color: #262626;
+  position: absolute;
+  top: -90px;
+  right: 5rem;
+  background-image: url('./img/icon.png');
+  background-size: auto 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 5px solid #fff;
+}
