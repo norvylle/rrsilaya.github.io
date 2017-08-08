@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #011627;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.text-blue {
+  color: #011627;
+}
+
+.container {
+  padding: 20px;
+  background-color: #fff;
+  color: #000;
+  width: 75%;
+}
+
+.title {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  color: #2EC4B6;
+  font-size: 28pt;
+}
+
+.information {
+  font-family: 'Assistant', sans-serif;
+}
+
+.information p {
+  margin: 10pt 0;
+}
+
+.information .label {
+  font-weight: 800;
+}
+
