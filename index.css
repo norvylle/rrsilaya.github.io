@@ -42,8 +42,9 @@ html, body {
   position: absolute;
   top: -90px;
   right: 5rem;
-  background-image: url('https://scontent.fmnl10-1.fna.fbcdn.net/v/t1.0-9/18767359_1687706004592768_3647838562383572313_n.jpg?oh=5b6c40844070e8710d0827831859773f&oe=59F672E7');
-  background-size: cover;
+  background-image: url('./img/icon.png');
+  background-size: auto 80%;
+  background-repeat: no-repeat;
   background-position: center;
   border: 5px solid #fff;
 }
